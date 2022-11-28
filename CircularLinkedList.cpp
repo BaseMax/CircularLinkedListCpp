@@ -156,6 +156,28 @@ int CircularLinkedList::get(int index) {
     return -1;
 }
 
+// Check if list is empty
+bool CircularLinkedList::isEmpty() {
+    return this->size == 0;
+}
+
+// Check if list contains a data
+bool CircularLinkedList::contains(int data) {
+    Node* temp = this->head;
+    while (temp != NULL) {
+        if (temp->data == data) {
+            return true;
+        }
+        temp = temp->next;
+    }
+    return false;
+}
+
+// Check if list contains a index
+bool CircularLinkedList::containsIndex(int index) {
+    return index >= 0 && index < this->size;
+}
+
 // Get the size of list
 int CircularLinkedList::getSize() {
     return this->size;
@@ -179,4 +201,31 @@ void CircularLinkedList::printReverse() {
         current = current->next;
     } while (current != this->tail);
     std::cout << std::endl;
+}
+
+// Reverse the linkedlist
+void CircularLinkedList::reverse() {
+    Node* current = this->head;
+    Node* prev = NULL;
+    Node* next = NULL;
+    do {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    } while (current != this->head);
+    this->head = prev;
+    this->tail = current;
+}
+
+// Reverse the linkedlist (recursive function)
+void CircularLinkedList::reverseRecursive(Node* current, Node* prev) {
+    if (current == this->head) {
+        this->tail = current;
+        current->next = prev;
+        return;
+    }
+    Node* next = current->next;
+    current->next = prev;
+    reverseRecursive(next, current);
 }

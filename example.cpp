@@ -24,5 +24,11 @@ int main(int argc, char** argv) {
     // Print list in reverse order
     list->printReverse();
 
+    // Reverse the list
+    list->reverse();
+
+    // Print list
+    list->print();
+
     return 0;
 }

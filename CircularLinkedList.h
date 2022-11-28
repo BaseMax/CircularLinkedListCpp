@@ -56,4 +56,19 @@ public:
 
     // Get the size of list
     int getSize();
+
+    // Check if list is empty
+    bool isEmpty();
+
+    // Check if list contains a data
+    bool contains(int data);
+
+    // Check if list contains a index
+    bool containsIndex(int index);
+
+    // Reverse the linkedlist
+    void reverse();
+
+    // Reverse the linkedlist (recursive function)
+    void reverseRecursive(Node* current, Node* prev);
 };
