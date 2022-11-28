@@ -35,4 +35,25 @@ public:
 
     // Print the list in reverse order
     void printReverse();
+
+    // Add a new node after a data
+    void addAfter(int data, int newData);
+
+    // Add a new node before a data
+    void addBefore(int data, int newData);
+
+    // Add a new node after a index
+    void addAfterIndex(int index, int newData);
+
+    // Add a new node before a index
+    void addBeforeIndex(int index, int newData);
+
+    // Get the index of a data
+    int indexOf(int data);
+
+    // Get the data of a index
+    int get(int index);
+
+    // Get the size of list
+    int getSize();
 };

@@ -52,6 +52,115 @@ void CircularLinkedList::addLast(int data) {
     this->size++;
 }
 
+// Add a new node after a data
+void CircularLinkedList::addAfter(int data, int newData) {
+    Node* newNode = new Node(newData);
+    Node* temp = this->head;
+    while (temp != NULL) {
+        if (temp->data == data) {
+            newNode->next = temp->next;
+            temp->next = newNode;
+            if (temp == this->tail) {
+                this->tail = newNode;
+            }
+            this->size++;
+            break;
+        }
+        temp = temp->next;
+    }
+}
+
+// Add a new node before a data
+void CircularLinkedList::addBefore(int data, int newData) {
+    Node* newNode = new Node(newData);
+    Node* temp = this->head;
+    while (temp != NULL) {
+        if (temp->next->data == data) {
+            newNode->next = temp->next;
+            temp->next = newNode;
+            if (temp == this->tail) {
+                this->tail = newNode;
+            }
+            this->size++;
+            break;
+        }
+        temp = temp->next;
+    }
+}
+
+// Add a new node after a index
+void CircularLinkedList::addAfterIndex(int index, int newData) {
+    Node* newNode = new Node(newData);
+    Node* temp = this->head;
+    int i = 0;
+    while (temp != NULL) {
+        if (i == index) {
+            newNode->next = temp->next;
+            temp->next = newNode;
+            if (temp == this->tail) {
+                this->tail = newNode;
+            }
+            this->size++;
+            break;
+        }
+        temp = temp->next;
+        i++;
+    }
+}
+
+// Add a new node before a index
+void CircularLinkedList::addBeforeIndex(int index, int newData) {
+    Node* newNode = new Node(newData);
+    Node* temp = this->head;
+    int i = 0;
+    while (temp != NULL) {
+        if (i == index - 1) {
+            newNode->next = temp->next;
+            temp->next = newNode;
+            if (temp == this->tail) {
+                this->tail = newNode;
+            }
+            this->size++;
+            break;
+        }
+        temp = temp->next;
+        i++;
+    }
+}
+
+// Get the index of a data
+int CircularLinkedList::indexOf(int data) {
+    Node* temp = this->head;
+    int i = 0;
+    while (temp != NULL) {
+        if (temp->data == data) {
+            return i;
+        }
+        temp = temp->next;
+        i++;
+    }
+    return -1;
+}
+
+// Get the data of a index
+int CircularLinkedList::get(int index) {
+    Node* temp = this->head;
+    int i = 0;
+    while (temp != NULL) {
+        if (i == index) {
+            return temp->data;
+        }
+        temp = temp->next;
+        i++;
+    }
+    return -1;
+}
+
+// Get the size of list
+int CircularLinkedList::getSize() {
+    return this->size;
+}
+
 // Print list
 void CircularLinkedList::print() {
     Node* current = this->head;
