@@ -19,13 +19,10 @@ int main(int argc, char** argv) {
     list->addLast(10);
 
     // Print list
-    cout << "List: ";
-    Node* current = list->head;
-    do {
-        cout << current->data << " ";
-        current = current->next;
-    } while (current != list->head);
-    cout << endl;
+    list->print();
+
+    // Print list in reverse order
+    list->printReverse();
 
     return 0;
 }

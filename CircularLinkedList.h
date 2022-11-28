@@ -29,4 +29,10 @@ public:
 
     // Add a new node at end of list
     void addLast(int data);
+
+    // Print list
+    void print();
+
+    // Print the list in reverse order
+    void printReverse();
 };

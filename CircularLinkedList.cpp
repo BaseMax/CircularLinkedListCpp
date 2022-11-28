@@ -51,3 +51,23 @@ void CircularLinkedList::addLast(int data) {
     }
     this->size++;
 }
+
+// Print list
+void CircularLinkedList::print() {
+    Node* current = this->head;
+    do {
+        std::cout << current->data << " ";
+        current = current->next;
+    } while (current != this->head);
+    std::cout << std::endl;
+}
+
+// Print the list in reverse order
+void CircularLinkedList::printReverse() {
+    Node* current = this->tail;
+    do {
+        std::cout << current->data << " ";
+        current = current->next;
+    } while (current != this->tail);
+    std::cout << std::endl;
+}
