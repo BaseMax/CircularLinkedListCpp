@@ -320,6 +320,7 @@ void CircularLinkedList::clear() {
 }
 
 // Destructor
-CircularLinkedList::~CircularLinkedList() {
-    clear();
-}
+// CircularLinkedList::~CircularLinkedList() {
+//     clear();
+// }
+
