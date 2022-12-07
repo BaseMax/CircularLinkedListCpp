@@ -71,4 +71,22 @@ public:
 
     // Reverse the linkedlist (recursive function)
     void reverseRecursive(Node* current, Node* prev);
+
+    // Copy the linkedlist
+    CircularLinkedList* copy();
+
+    // Remove the first node
+    void removeFirst();
+
+    // Remove the last node
+    void removeLast();
+
+    // Remove a node by data
+    void remove(int data);
+
+    // Remove a node by index
+    void removeIndex(int index);
+
+    // Remove all nodes
+    void clear();
 };

@@ -229,3 +229,97 @@ void CircularLinkedList::reverseRecursive(Node* current, Node* prev) {
     current->next = prev;
     reverseRecursive(next, current);
 }
+
+// Copy the linkedlist
+CircularLinkedList* CircularLinkedList::copy() {
+    CircularLinkedList* newList = new CircularLinkedList();
+    Node* temp = this->head;
+    while (temp != NULL) {
+        newList->addLast(temp->data);
+        temp = temp->next;
+    }
+    return newList;
+}
+
+// Remove the first node
+void CircularLinkedList::removeFirst() {
+    if (this->head == NULL) {
+        return;
+    }
+    Node* temp = this->head;
+    this->head = this->head->next;
+    this->tail->next = this->head;
+    delete temp;
+    this->size--;
+}
+
+// Remove the last node
+void CircularLinkedList::removeLast() {
+    if (this->head == NULL) {
+        return;
+    }
+    Node* temp = this->head;
+    while (temp->next != this->tail) {
+        temp = temp->next;
+    }
+    delete this->tail;
+    this->tail = temp;
+    this->tail->next = this->head;
+    this->size--;
+}
+
+// Remove a node by data
+void CircularLinkedList::remove(int data) {
+    Node* temp = this->head;
+    while (temp != NULL) {
+        if (temp->next->data == data) {
+            Node* toDelete = temp->next;
+            temp->next = temp->next->next;
+            if (toDelete == this->tail) {
+                this->tail = temp;
+            }
+            delete toDelete;
+            this->size--;
+            break;
+        }
+        temp = temp->next;
+    }
+}
+
+// Remove a node by index
+void CircularLinkedList::removeIndex(int index) {
+    Node* temp = this->head;
+    int i = 0;
+    while (temp != NULL) {
+        if (i == index - 1) {
+            Node* toDelete = temp->next;
+            temp->next = temp->next->next;
+            if (toDelete == this->tail) {
+                this->tail = temp;
+            }
+            delete toDelete;
+            this->size--;
+            break;
+        }
+        temp = temp->next;
+        i++;
+    }
+}
+
+// Remove all nodes
+void CircularLinkedList::clear() {
+    Node* temp = this->head;
+    while (temp != NULL) {
+        Node* toDelete = temp;
+        temp = temp->next;
+        delete toDelete;
+    }
+    this->head = NULL;
+    this->tail = NULL;
+    this->size = 0;
+}
+
+// Destructor
+CircularLinkedList::~CircularLinkedList() {
+    clear();
+}

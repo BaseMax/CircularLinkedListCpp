@@ -38,6 +38,7 @@ This is a simple implementation of a circular linked-list in **C++**.
 ## Functions
 
 - `Node::Node(int data)`: Constructor for the node class.
+
 - `CircularLinkedList::CircularLinkedList()`: Constructor for the CircularLinkedList class.
 - `void CircularLinkedList::addFirst(int data)`: Add a new node at beginning of list.
 - `void CircularLinkedList::addLast(int data)`: Add a new node at end of list.
@@ -55,5 +56,11 @@ This is a simple implementation of a circular linked-list in **C++**.
 - `void CircularLinkedList::printReverse()`: Print the list in reverse order.
 - `void CircularLinkedList::reverse()`: Reverse the linkedlist (iterative function)
 - `void CircularLinkedList::reverseRecursive(Node* current, Node* prev)`: Recursive function to reverse the linkedlist.
+- `CircularLinkedList* CircularLinkedList::copy()`: Copy the list.
+- `void removeFirst()`: Delete a node at beginning of list.
+- `void removeLast()`: Delete a node at end of list.
+- `void remove(int data)`: Delete a node by data.
+- `void removeIndex(int index)`: Delete a node by index.
+- `void CircularLinkedList::clear()`: Clear the list.
 
 © Copyright Max Base, 2022
